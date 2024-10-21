@@ -10,11 +10,11 @@ using TallerCodeFirstMVC.Models;
 
 namespace TallerCodeFirstMVC.Controllers
 {
-    public class JugadorsController : Controller
+    public class JugadorController : Controller
     {
         private readonly TallerCodeFirstMVCContext _context;
 
-        public JugadorsController(TallerCodeFirstMVCContext context)
+        public JugadorController(TallerCodeFirstMVCContext context)
         {
             _context = context;
         }
