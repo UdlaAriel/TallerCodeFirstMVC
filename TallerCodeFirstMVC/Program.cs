@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TallerCodeFirstMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<TallerCodeFirstMVCContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TallerCodeFirstMVCContext") ?? throw new InvalidOperationException("Connection string 'TallerCodeFirstMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
