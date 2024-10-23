@@ -2,6 +2,44 @@
     ViewData["Title"] = "Inicio";
 }
 
+@model IEnumerable<TallerCodeFirstMVC.Models.Estadio>
+
 <div class="text-center">
-    <h1 class="display-4">¡Bienvenido!</h1>
+    <br>
+    <h1 class="header1">¡Bienvenido!</h1>
+    <div>
+        @if (Model != null && Model.Any())
+        {
+            var count = 0;
+
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <header>Codigo Estadio: </header>
+                        @Html.DisplayFor(modelItem => item.Id)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.City)
+                        <br />
+                        @Html.DisplayFor(modelItem => item.Capacity)
+                        <br />
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn">Ver más</button>
+                    </div>
+                </div>
+
+                count++;
+                @if (count == 4)
+                {
+                    count = 0;
+                    <br/>
+                }
+            }
+        }
+        else
+        {
+            <p>No hay estadios disponibles.</p>
+        }
+    </div>
 </div>

@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using TallerCodeFirstMVC.Data;
 using TallerCodeFirstMVC.Models;
 
 namespace TallerCodeFirstMVC.Controllers
@@ -7,15 +9,17 @@ namespace TallerCodeFirstMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly TallerCodeFirstMVCContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, TallerCodeFirstMVCContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.Estadio.ToListAsync());
         }
 
         public IActionResult Privacy()

@@ -22,7 +22,8 @@ namespace TallerCodeFirstMVC.Controllers
         // GET: Equipos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Equipo.ToListAsync());
+            var tallerCodeFirstMVCContext = _context.Equipo.Include(j => j.estadio);
+            return View(await tallerCodeFirstMVCContext.ToListAsync());
         }
 
         // GET: Equipos/Details/5
@@ -34,6 +35,7 @@ namespace TallerCodeFirstMVC.Controllers
             }
 
             var equipo = await _context.Equipo
+                .Include(j => j.estadio)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (equipo == null)
             {
@@ -46,6 +48,7 @@ namespace TallerCodeFirstMVC.Controllers
         // GET: Equipos/Create
         public IActionResult Create()
         {
+            ViewData["idEstadio"] = new SelectList(_context.Estadio, "Id", "Id");
             return View();
         }
 

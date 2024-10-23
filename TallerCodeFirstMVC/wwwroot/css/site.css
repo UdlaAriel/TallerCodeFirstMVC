@@ -20,3 +20,42 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.header1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 100px;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/*AI Generated Code*/
+
+.card {
+    width: 15rem;
+    float: left;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.card-footer {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
