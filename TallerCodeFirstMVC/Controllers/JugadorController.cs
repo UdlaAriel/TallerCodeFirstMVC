@@ -23,6 +23,7 @@ namespace TallerCodeFirstMVC.Controllers
         public async Task<IActionResult> Index()
         {
             var tallerCodeFirstMVCContext = _context.Jugador.Include(j => j.Equipo);
+            ViewBag.Equipos = await _context.Equipo.ToListAsync();
             return View(await tallerCodeFirstMVCContext.ToListAsync());
         }
 
