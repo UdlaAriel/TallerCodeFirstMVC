@@ -7,7 +7,9 @@
 <div class="text-center">
     <br>
     <h1 class="header1">¡Bienvenido!</h1>
-    <div>
+    <h2 class="header2">Estadios Registrados</h2>
+    <br>
+    <div class="generalPanel">
         @if (Model != null && Model.Any())
         {
             var count = 0;
@@ -16,16 +18,12 @@
             {
                 <div class="card">
                     <div class="card-body">
-                        <header>Codigo Estadio: </header>
-                        @Html.DisplayFor(modelItem => item.Id)
-                        <br />
-                        @Html.DisplayFor(modelItem => item.City)
-                        <br />
-                        @Html.DisplayFor(modelItem => item.Capacity)
-                        <br />
+                        <header>Codigo: @Html.DisplayFor(modelItem => item.Id) </header>
+                        <header>Ciudad: @Html.DisplayFor(modelItem => item.City)</header>
+                        <header>Capacidad: @Html.DisplayFor(modelItem => item.Capacity)</header>
                     </div>
                     <div class="card-footer">
-                        <button class="btn">Ver más</button>
+                        <a href="~/Estadios/Details/@item.Id" class="btn">Ver más</a>
                     </div>
                 </div>
 
@@ -33,7 +31,7 @@
                 @if (count == 4)
                 {
                     count = 0;
-                    <br/>
+                    <br>
                 }
             }
         }
